@@ -1,9 +1,9 @@
 #ifndef SARADNIK_HPP_INCLUDED
 #define SARADNIK_HPP_INCLUDED
-
+#include <fstream>
 enum SaradnikState{direktor, zamenik direktora, sekretar, pedagog, sef racunovodstva};
 
-class Saradnik{
+class Saradnik:public Osoba{
 private:
     SaradnikState vrsta;
 public:

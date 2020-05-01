@@ -15,7 +15,7 @@ public:
     Osoba(){
         ime=" ";
         prezime=" ";
-        ggodine=0;
+        godine=0;
     }
     Osoba(const Osoba& o){
         ime=o.ime;

@@ -45,6 +45,17 @@ public:
         cout<<"Dobar dan ja sam: "<<ime<<" "<<prezime<<"imam: "<<godine<<endl;
         cout<<"I idem u: "<<razred<<endl;
     }
+    void upisiUcenika(Ucenik ucenik, int i){
+        ofstream fajl;
+        string naziv=Ucenik.getRazred()<<".txt";
+        if(i>2001){
+            cout<<"Popunjena mesta";
+        }else{
+            fajl.open(naziv);
+            string upis=Ucenik.getIme()<<" "<<Ucenik.getPrezime()<<" "<<Ucenik.getGodine()<<endl;
+            fajl<<upis<<endl;
+            fajl.close();
+        }
+    }
 };
-
 #endif // UCENIK_HPP_INCLUDED
