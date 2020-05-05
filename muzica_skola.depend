@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1588709241 source:c:\users\vir\desktop\suncica babic\muzica_skola\main.cpp
+	<iostream>
+	<fstream>
+	"Osoba.hpp"
+	"Ucenik.hpp"
+	"Profesor.hpp"
+
+1588687760 c:\users\vir\desktop\suncica babic\muzica_skola\osoba.hpp
+
+1588709595 c:\users\vir\desktop\suncica babic\muzica_skola\ucenik.hpp
+	<fstream>
+
+1588709352 c:\users\vir\desktop\suncica babic\muzica_skola\profesor.hpp
+	<fstream>
+

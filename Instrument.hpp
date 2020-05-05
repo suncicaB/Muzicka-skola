@@ -1,4 +1,4 @@
-#ifndef INSTRUMENT_HPP_INCLUDED
+##ifndef INSTRUMENT_HPP_INCLUDED
 #define INSTRUMENT_HPP_INCLUDED
 //treba povezati sa drugim klasama
 enum InstrumentState{klavir, gitara, violina, flauta};

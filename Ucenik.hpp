@@ -1,6 +1,6 @@
 #ifndef UCENIK_HPP_INCLUDED
 #define UCENIK_HPP_INCLUDED
-
+#include<fstream>
 enum RazredState{pripremni, prvi, drugi, treci, cetvrti, peti, sesti};
 
 class Ucenik:public Osoba{
@@ -45,17 +45,53 @@ public:
         cout<<"Dobar dan ja sam: "<<ime<<" "<<prezime<<"imam: "<<godine<<endl;
         cout<<"I idem u: "<<razred<<endl;
     }
-    void upisiUcenika(Ucenik ucenik, int i){
+
+    string enum_to_string(RazredState type) {
+       switch(type) {
+          case pripremni:
+             return "pripremni";
+          case prvi:
+             return "prvi";
+          case drugi:
+             return "drugi";
+          case treci:
+             return "treci";
+          case cetvrti:
+             return "cetvrti";
+          case peti:
+             return "peti";
+          default:
+             return "sesti";
+       }
+}
+     void upisiUcenika(Ucenik ucenik, int i){
         ofstream fajl;
-        string naziv=Ucenik.getRazred()<<".txt";
+        string naziv=enum_to_string(ucenik.getRazred())+".txt";
         if(i>2001){
             cout<<"Popunjena mesta";
         }else{
             fajl.open(naziv);
-            string upis=Ucenik.getIme()<<" "<<Ucenik.getPrezime()<<" "<<Ucenik.getGodine()<<endl;
+            string upis=ucenik.getIme()+" "+ucenik.getPrezime()+" "+std::to_string(ucenik.getGodine());
             fajl<<upis<<endl;
             fajl.close();
         }
+    }
+    void citajTxt(string nazivFajla){
+    string linija;
+    ifstream fajl(nazivFajla);
+    if(fajl.is_open()){
+        while(getline(fajl, linija)){
+            cout<<linija<<'\n';
+        }
+        fajl.close();
+    }else{
+        cout<<"Neuspesno otvoren fajl";
+    }
+}
+    void citajFajl(string nazivFajla){
+        cout<<"U fajlu pise: "<<endl;
+        citajTxt(nazivFajla);
+        cout<<endl<<endl;
     }
 };
 #endif // UCENIK_HPP_INCLUDED

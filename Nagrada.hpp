@@ -11,13 +11,13 @@ public:
     Nagrada(double bodovi){
         brojBodova = bodovi;
         if(bodovi >= 90 && bodovi <= 100) {
-            mesto=NagradaState.prva;
+            mesto=prva;
         } else if(bodovi >= 80 && bodovi <= 89) {
-            mesto = NagradaState.druga;
+            mesto=druga;
         } else if(bodovi >= 70 && bodovi <= 79) {
-            mesto = NagradaState.treca;
+            mesto=treca;
         } else {
-            mesto = NagradaState.pohvala;
+            mesto=pohvala;
         }
     }
 

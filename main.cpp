@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -7,11 +8,11 @@ using namespace std;
 #include "Profesor.hpp"
 
 int main(){
-    Osoba o1, o2("Pera", "Peric", 10);
-    Osoba predstaviSe(o2);
+    Ucenik u1,u2("Suncica", "Babic", 16, RazredState::drugi);
+    u1.citajFajl("ucenici.txt");
+    u2.upisiUcenika(u2, 100);
 
-    Ucenik u1, u2("Mitar", "Mitrovic", 8);
-
-    Profesor p1, p2("Nikola", "Nikolic", 35)
+    Profesor p1;
+    p1.citajFajl("profesori.txt");
     return 0;
 }
