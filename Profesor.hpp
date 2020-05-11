@@ -51,6 +51,9 @@ public:
         citajTxt(nazivFajla);
         cout<<endl<<endl;
     }
+    void ispisiProfesor(){
+        cout<<struka<<endl;
+    }
 };
 
 #endif // PROFESOR_HPP_INCLUDED

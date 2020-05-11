@@ -79,19 +79,22 @@ public:
     void citajTxt(string nazivFajla){
     string linija;
     ifstream fajl(nazivFajla);
-    if(fajl.is_open()){
-        while(getline(fajl, linija)){
-            cout<<linija<<'\n';
+        if(fajl.is_open()){
+            while(getline(fajl, linija)){
+                cout<<linija<<'\n';
+            }
+            fajl.close();
+        }else{
+            cout<<"Neuspesno otvoren fajl";
         }
-        fajl.close();
-    }else{
-        cout<<"Neuspesno otvoren fajl";
     }
-}
     void citajFajl(string nazivFajla){
         cout<<"U fajlu pise: "<<endl;
         citajTxt(nazivFajla);
         cout<<endl<<endl;
+    }
+    void ispisiUcenik(){
+        cout<<razred<<endl;
     }
 };
 #endif // UCENIK_HPP_INCLUDED

@@ -13,13 +13,15 @@ public:
         termin = ts;
         dan = dan;
     }
-
     TerminState getTermin(){
         return termin;
     }
-
     DanState getDan() {
         return dan;
+    }
+    void ispisiTermin(){
+        cout<<termin<<endl;
+        cout<<dan<<endl;
     }
 };
 

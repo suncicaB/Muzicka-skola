@@ -28,7 +28,7 @@ public:
             cout<<"Slanje zahteva za zaposljavanje"<<endl;
         }
     }
-    void Broj
+    //void Broj
 };
 
 #endif // ZAPOSLENI_INCLUDED

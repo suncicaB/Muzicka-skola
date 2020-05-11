@@ -1,4 +1,4 @@
-##ifndef INSTRUMENT_HPP_INCLUDED
+#ifndef INSTRUMENT_HPP_INCLUDED
 #define INSTRUMENT_HPP_INCLUDED
 //treba povezati sa drugim klasama
 enum InstrumentState{klavir, gitara, violina, flauta};
@@ -17,10 +17,11 @@ public:
         return instr;
     }
     InstrumentState setInstrument(InstrumentState instrr){
-        instr=instrr;
+        return instr=instrr;
     }
     InstrumentState getIst()const{
         return getInstr();
+    }
 };
 
 #endif // INSTRUMENT_HPP_INCLUDED

@@ -5,7 +5,7 @@ class Osoba{
 protected:
     string ime;
     string prezime;
-    int godine;
+    static int godine;
 public:
     Osoba(string iime, string pprezime, int ggodine){
         ime=iime;
@@ -42,6 +42,11 @@ public:
     }
     void predstaviSe(){
         cout<<"Dobar dan ja sam: "<<ime<<" "<<prezime<<"imam: "<<godine<<endl;
+    }
+    void ispisiOsoba(){
+            cout<<ime<<endl;
+            cout<<prezime<<endl;
+            cout<<godine<<endl;
     }
 };
 

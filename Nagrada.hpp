@@ -1,7 +1,7 @@
 #ifndef NAGRADA_HPP_INCLUDED
 #define NAGRADA_HPP_INCLUDED
 
-enum NagradaState{pohvala, treca, druga, prva};
+enum NagradaState{pohvala, trecaa, drugaa, prvaa};
 
 class Nagrada{
 private:
@@ -11,22 +11,24 @@ public:
     Nagrada(double bodovi){
         brojBodova = bodovi;
         if(bodovi >= 90 && bodovi <= 100) {
-            mesto=prva;
+            mesto=prvaa;
         } else if(bodovi >= 80 && bodovi <= 89) {
-            mesto=druga;
+            mesto=drugaa;
         } else if(bodovi >= 70 && bodovi <= 79) {
-            mesto=treca;
+            mesto=trecaa;
         } else {
             mesto=pohvala;
         }
     }
-
     double getBrojBodova(){
         return brojBodova;
     }
-
     NagradaState getNagrada() {
         return mesto;
+    }
+    void ispisiNagrada(){
+        cout<<brojBodova<<endl;
+        cout<<mesto<<endl;
     }
 };
 
