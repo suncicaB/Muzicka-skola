@@ -1,27 +1,33 @@
 #ifndef TERMIN_HPP_INCLUDED
 #define TERMIN_HPP_INCLUDED
 
-enum TerminState{jedan, dva, tri, cetiri, pet};
 enum DanState{ponedeljak, utorak, sreda, cetvrtak, petak, subota};
+enum VremeState{sest, pola_sest, sedam, pola_sedam, osam, pola_osam, devet};//uvece
 
 class Termin{
 protected:
-    TerminState termin;
     DanState dan;
+    VremeState vreme;
+    bool zauzeto;
 public:
-    Termin(TerminState ts, DanState ds){
-        termin = ts;
-        dan = dan;
+    Termin(DanState dann, VremeState vremee, bool zauzetoo){
+        dan=dann;
+        vreme=vremee;
+        zauzeto=zauzetoo;
     }
-    TerminState getTermin(){
-        return termin;
-    }
-    DanState getDan() {
+    DanState getDan(){
         return dan;
     }
+    VremeState getVreme(){
+        return vreme;
+    }
+    bool getZauzeto(){
+        return zauzeto;
+    }
     void ispisiTermin(){
-        cout<<termin<<endl;
         cout<<dan<<endl;
+        cout<<vreme<<endl;
+        cout<<zauzeto<<endl;
     }
 };
 

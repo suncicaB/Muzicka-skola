@@ -1,28 +1,18 @@
 #ifndef ISPIT_HPP_INCLUDED
 #define ISPIT_HPP_INCLUDED
-#include "Profesor.hpp"
-#include "Termin.hpp"
-
-class Ispit{
+#include "Takmicenje.hpp"
+class Ispit:public Takmicenje{
 private:
-    Termin termin;
-    Profesor ispitivac;
+    string dozvola;
 public:
-    Ispit(TerminState ts, DanState ds,
-          string iime, string pprezime, int ggodine,ProfesorState sstruka):
-              termin(ts, ds), ispitivac(iime, pprezime, ggodine, sstruka){}
-    Termin getTermin() {
-        return termin;
+    Ispit():Takmicenje(0), dozvola("naziv"){}
+    Ispit(int uuplata, string ddozvola):Takmicenje(uuplata), dozvola(ddozvola){}
+
+    void dajDozvolu(string imaIspit){
+        dozvola=imaIspit;
     }
-    Profesor getIspitivac() {
-        return ispitivac;
-    }
-    DanState getDanIspita() {
-        return termin.getDan();
-    }
-    void ispit(){
-            termin.ispisiTermin();
-            ispitivac.ispisiProfesor();
+    void ispisi(){
+        cout<<" "<<dozvola<<" "<<uplata<<endl;
     }
 };
 

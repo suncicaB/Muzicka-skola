@@ -1,20 +1,19 @@
 #ifndef TAKMICENJE_HPP_INCLUDED
 #define TAKMICENJE_HPP_INCLUDED
-//metoda da dodeluje uceniku nagradu
-#include "Ucenik.hpp"
-#include "Nagrada.hpp"
+//da bi se ucestvovalo na takmicenju treba da se uplati ucesce
+#include "Koncert.hpp"
 
 class Takmicenje{
-private:
-    Ucenik ucesnik;
-    Nagrada bodovi;
+protected:
+    int uplata;
 public:
-    Takmicenje(string iime, string pprezime, int ggodine, RazredState rrazred,
-               double bbodovi): ucesnik(iime, pprezime, ggodine, rrazred), bodovi(bbodovi){}
-    void takmicenje(){
-            ucesnik.ispisiUcenik();
-            bodovi.ispisiNagrada();
+    Takmicenje(){
+        uplata=0;
     }
+    Takmnicenje(int uplataa){
+        uplata=uplataa;
+    }
+    virtual void ispisUplate()=0;
 };
 
 #endif // TAKMICENJE_HPP_INCLUDED
