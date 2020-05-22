@@ -10,6 +10,9 @@ public:
     Predmet(){}
     Predmet(string iime){}
 
+    string getProfesor(){
+	    return profesor;
+    }
 };
 
 #endif // PREDMET_HPP_INCLUDED

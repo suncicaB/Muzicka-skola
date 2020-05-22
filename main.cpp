@@ -25,6 +25,7 @@ int Osoba::godine=7;
 void unesiUcenike(int &broj, int &brojI, string filen, Ucenik* ucenici, Instrument*  instrumenti);
 void unesiProfesore(int &brojP, string filen, Profesor* profesori);
 InstrumentState kreirajInstrument(string instrument);
+void sacuvajPredmete(int &pred, string fn, Predmet *predmeti);
 
 int main(){
 	
@@ -138,4 +139,17 @@ InstrumentState kreirajInstrument(string instrument){
 	else{
 		return InstrumentState::gitara;
 	}
+}
+
+        
+void sacuvajPredmete(int &pred, string fn, Predmet *predmeti) {
+	ofstream fajl;
+            fajl.open(fn);
+	    for (int i = 0; i < pred; i ++) {
+	   	 string upis=predmeti[i].getProfesor();
+           	 fajl<<upis<<endl;
+
+	    }
+            fajl.close();
+
 }
