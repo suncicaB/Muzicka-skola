@@ -18,6 +18,7 @@ public:
     Ucenik(string iime, string pprezime, int ggodine, RazredState rrazred):Osoba(iime, pprezime, ggodine), razred(rrazred){}
     Ucenik(const Osoba& o, RazredState razzred):Osoba(o), razred(razzred){}
     Ucenik(const Ucenik& u):Osoba(u), razred(u.razred){}
+    Ucenik(string iime, string pprezime, int ggodine):Osoba(iime, pprezime, ggodine), razred(pripremni){}
     RazredState getRazred(){
         return razred;
     }

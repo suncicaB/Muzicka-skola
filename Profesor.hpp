@@ -5,7 +5,7 @@
 using std::ofstream;
 using std::ifstream;
 
-enum ProfesorState{klavira, gitare, violine, flaute, solfedja, hora, teorije_za_muziku};
+enum ProfesorState{klavira, gitare, violine, harmonike, solfedja, hora, teorije_za_muziku};
 
 class Profesor:public Osoba{
 private:
@@ -16,6 +16,7 @@ public:
     Profesor(string iime, string pprezime, int ggodine, ProfesorState sstruka):Osoba(iime, pprezime, ggodine), struka(sstruka){}
     Profesor(const Osoba& o, ProfesorState sttruka):Osoba(o), struka(sttruka){}
     Profesor(const Profesor& p):Osoba(p), struka(p.struka){}
+     Profesor(string iime, string pprezime, int ggodine): Osoba(iime, pprezime, ggodine), struka(klavira){}
     ProfesorState getStruka()const{
         return struka;
     }
@@ -57,6 +58,24 @@ public:
     void ispisiProfesor(){
         cout<<struka<<endl;
     }
+   void setStruka(string struka){
+            if(struka.compare("klavir") == 0){
+                struka=ProfesorState::klavira;
+            }
+            else if(struka.compare("gitara") == 0){
+                struka = ProfesorState::gitare;
+            }
+	    else if(struka.compare("violina") == 0){
+                struka = ProfesorState::violine;
+            }
+		else if(struka.compare("harmonika") == 0){
+                struka = ProfesorState::harmonike;
+            } else {
+	    	struka = ProfesorState::solfedja;
+	    }
+
+
+        }
 };
 
 #endif // PROFESOR_HPP_INCLUDED
