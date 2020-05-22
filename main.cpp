@@ -69,7 +69,6 @@ int main(){
 void unesiUcenike(int &broj, int &brojI, string filen, Ucenik* ucenici, Instrument*  instrumenti){
 	ofstream fajlO;
 	
-	int broj = 0;
 	int brU = 0;
 	int brI = 0;
 
@@ -107,15 +106,14 @@ void unesiUcenike(int &broj, int &brojI, string filen, Ucenik* ucenici, Instrume
 void unesiProfesore(int &brojP, string filen, Profesor* profesori){
         ofstream fajlO;
 
-        int broj = 0;
         int brP = 0;
 
         string linija;
         ifstream fajlI(filen);
         if(fajlI.is_open()){
                 getline(fajlI, linija);
-                broj = std::atoi(linija.c_str());
-                profesori = new Profesor[broj];
+                brojP = std::atoi(linija.c_str());
+                profesori = new Profesor[brojP];
                 while(getline(fajlI, linija)) {
                         int pos = 0;
                         string ime = linija.substr(pos, linija.find(delimiter));
