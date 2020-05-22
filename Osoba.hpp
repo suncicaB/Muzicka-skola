@@ -1,5 +1,11 @@
 #ifndef OSOBA_HPP_INCLUDED
 #define OSOBA_HPP_INCLUDED
+#include <string>
+#include<iostream>
+
+using std::string;
+using std::cout;
+using std::endl;
 
 class Osoba{
 protected:

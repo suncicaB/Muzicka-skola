@@ -1,6 +1,9 @@
 #ifndef PROFESOR_HPP_INCLUDED
 #define PROFESOR_HPP_INCLUDED
 #include <fstream>
+#include "Osoba.hpp"
+using std::ofstream;
+using std::ifstream;
 
 enum ProfesorState{klavira, gitare, violine, flaute, solfedja, hora, teorije_za_muziku};
 

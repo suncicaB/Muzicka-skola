@@ -1,6 +1,14 @@
 #ifndef ISPIT_HPP_INCLUDED
 #define ISPIT_HPP_INCLUDED
+#include <string>
+#include<iostream>
+
 #include "Takmicenje.hpp"
+
+using std::string;
+using std::cout;
+using std::endl;
+
 class Ispit:public Takmicenje{
 private:
     string dozvola;

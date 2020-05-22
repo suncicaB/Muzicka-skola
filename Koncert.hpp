@@ -5,6 +5,9 @@
 #include"Ucenik.hpp"
 #include"Termin.hpp"
 
+using std::ostream;
+using std::ifstream;
+
 ostream& operator<<(ostream& out, const Termin& t){
         out<<"Termin"<<endl;
         out<<"Dan:"<<t.getDan()<<endl;
@@ -58,7 +61,7 @@ public:
 
     bool pretragaT(const Termin& t){
         for(auto it=ter.begin(); it<ter.end();it++){
-            if((t.getDan().uporediDan(it->getDan())==true) && (t.getVreme().uporediVreme(it->getVreme())==true)){
+            if((t.getDan()==it->getDan()) && (t.getVreme()==it->getVreme())){
                return true;
             }
         }

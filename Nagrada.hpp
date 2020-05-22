@@ -1,7 +1,10 @@
 #ifndef NAGRADA_HPP_INCLUDED
 #define NAGRADA_HPP_INCLUDED
+#include<iostream>
 
 enum NagradaState{pohvala, trecaa, drugaa, prvaa};
+using std::cout;
+using std::endl;
 
 class Nagrada{
 private:

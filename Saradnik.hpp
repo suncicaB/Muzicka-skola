@@ -1,6 +1,7 @@
 #ifndef SARADNIK_HPP_INCLUDED
 #define SARADNIK_HPP_INCLUDED
 #include <fstream>
+#include "Osoba.hpp"
 
 enum SaradnikState{direktor, zamenik_direktora, sekretar, pedagog, sef_racunovodstva};
 

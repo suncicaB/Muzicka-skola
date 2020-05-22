@@ -1,5 +1,9 @@
 #ifndef TERMIN_HPP_INCLUDED
 #define TERMIN_HPP_INCLUDED
+#include<iostream>
+
+using std::cout;
+using std::endl;
 
 enum DanState{ponedeljak, utorak, sreda, cetvrtak, petak, subota};
 enum VremeState{sest, pola_sest, sedam, pola_sedam, osam, pola_osam, devet};//uvece
@@ -15,16 +19,16 @@ public:
         vreme=vremee;
         zauzeto=zauzetoo;
     }
-    DanState getDan(){
+    DanState getDan() const{
         return dan;
     }
-    VremeState getVreme(){
+    VremeState getVreme() const{
         return vreme;
     }
-    bool getZauzeto(){
+    bool getZauzeto() const{
         return zauzeto;
     }
-    void ispisiTermin(){
+    void ispisiTermin() const{
         cout<<dan<<endl;
         cout<<vreme<<endl;
         cout<<zauzeto<<endl;

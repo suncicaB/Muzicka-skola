@@ -1,3 +1,11 @@
-Mika, Mikic, 10
-Petar, Peric, 8
-Vasilisa, Vasilic, 13
+10
+Suncica,Babic,16,klavir
+Ivana,Tomic,11,gitara
+Nemanja,Markovic,8,harmonika
+Sasa,Jankovic,9,klavir
+Sonja,Simic,14,harmonika
+Nenad,Jaksic,11,gitara
+Snezana,Tot,16,klavir
+Milan,Milovic,11,gitara
+Stefan,Jokic,8,harmonika
+Andrijana,Niksic,15,harmonika

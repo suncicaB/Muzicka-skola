@@ -1,11 +1,18 @@
 #ifndef UCENIK_HPP_INCLUDED
 #define UCENIK_HPP_INCLUDED
 #include<fstream>
+#include "Osoba.hpp"
+#include "Instrument.hpp"
+
+using std::ofstream;
+using std::ifstream;
+
 enum RazredState{pripremni, prvi, drugi, treci, cetvrti, peti, sesti};
 
 class Ucenik:public Osoba{
 protected:
     RazredState razred;
+    Instrument* instrument;
 public:
     Ucenik():Osoba(" ", " ", 0), razred(pripremni){}
     Ucenik(string iime, string pprezime, int ggodine, RazredState rrazred):Osoba(iime, pprezime, ggodine), razred(rrazred){}
@@ -44,6 +51,10 @@ public:
     void predstaviSe(){
         cout<<"Dobar dan ja sam: "<<ime<<" "<<prezime<<"imam: "<<godine<<endl;
         cout<<"I idem u: "<<razred<<endl;
+    }
+
+    void setInstrument(Instrument *i) {
+    	instrument = i;
     }
 
     string enum_to_string(RazredState type) {
