@@ -7,6 +7,7 @@ class Predmet{
 private:
     string profesor;
 public:
+    Predmet(string iime){}
 
 };
 

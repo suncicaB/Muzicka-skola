@@ -22,21 +22,37 @@ std::string delimiter = ",";
 
 int Osoba::godine=7;
 
-void unesiUcenike(string filen, Ucenik* ucenici, Instrument*  instrumenti);
-void unesiProfesore(string filen, Profesor* profesori);
+void unesiUcenike(int &broj, int &brojI, string filen, Ucenik* ucenici, Instrument*  instrumenti);
+void unesiProfesore(int &brojP, string filen, Profesor* profesori);
 InstrumentState kreirajInstrument(string instrument);
 
 int main(){
 	
+	int broj = 0;
+	int brojI = 0;
+	int brojP = 0;
+        int brU = 0;
+        int brI = 0;
+	int brP = 0;
+
 	Instrument* instrumenti;
 
 	string u_file="ucenici.txt";
 	Ucenik* ucenici;
-	unesiUcenike(u_file, ucenici, instrumenti);
+	unesiUcenike(broj, brojI, u_file, ucenici, instrumenti);
 
 	string p_file="profesori.txt";
 	Profesor* profesori;
-	unesiProfesore(p_file, profesori);
+	unesiProfesore(brojP, p_file, profesori);
+
+	Predmet* predmeti = new Predmet[brojP] ;
+	//kreiraj predmete
+	for(int i = 0; i < brojP; i++) {
+		Profesor prof = profesori[i];
+		Predmet p(prof.getIme());
+		predmeti[i] = p;
+	}
+
 
     Osoba o1, o2("Pera", "Peric", 10);
     o2.ispisiOsoba();
@@ -50,7 +66,7 @@ int main(){
     return 0;
 }
 
-void unesiUcenike(string filen, Ucenik* ucenici, Instrument*  instrumenti){
+void unesiUcenike(int &broj, int &brojI, string filen, Ucenik* ucenici, Instrument*  instrumenti){
 	ofstream fajlO;
 	
 	int broj = 0;
@@ -88,7 +104,7 @@ void unesiUcenike(string filen, Ucenik* ucenici, Instrument*  instrumenti){
 	fajlI.close();
 }
 
-void unesiProfesore(string filen, Profesor* profesori){
+void unesiProfesore(int &brojP, string filen, Profesor* profesori){
         ofstream fajlO;
 
         int broj = 0;
