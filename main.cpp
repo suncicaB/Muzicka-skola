@@ -22,13 +22,22 @@ std::string delimiter = ",";
 
 int Osoba::godine=7;
 
-void unesiUcenike(string filen, Ucenik* ucenici);
+void unesiUcenike(string filen, Ucenik* ucenici, Instrument*  instrumenti);
+void unesiProfesore(string filen, Profesor* profesori);
+InstrumentState kreirajInstrument(string instrument);
 
 int main(){
+	
+	Instrument* instrumenti;
 
 	string u_file="ucenici.txt";
 	Ucenik* ucenici;
-	unesiUcenike(u_file, ucenici);
+	unesiUcenike(u_file, ucenici, instrumenti);
+
+	string p_file="profesori.txt";
+	Profesor* profesori;
+	unesiProfesore(p_file, profesori);
+
     Osoba o1, o2("Pera", "Peric", 10);
     o2.ispisiOsoba();
 
@@ -41,11 +50,12 @@ int main(){
     return 0;
 }
 
-void unesiUcenike(string filen, Ucenik* ucenici){
+void unesiUcenike(string filen, Ucenik* ucenici, Instrument*  instrumenti){
 	ofstream fajlO;
 	
 	int broj = 0;
 	int brU = 0;
+	int brI = 0;
 
 	string linija;
 	ifstream fajlI(filen);
@@ -63,7 +73,13 @@ void unesiUcenike(string filen, Ucenik* ucenici){
 			int god = std::atoi(godine.c_str());
 			pos = pos + delimiter.length();
 			string instrument = linija.substr(pos, linija.find(delimiter));
+			InstrumentState instr = kreirajInstrument(instrument);
 			Ucenik u(ime, prezime, god);
+			Instrument uInstrument (instr);
+
+			instrumenti[brI] = uInstrument;
+			u.setInstrument(&uInstrument);
+			
 			ucenici[brU] = u;
 			brU++;
 		}
@@ -104,3 +120,17 @@ void unesiProfesore(string filen, Profesor* profesori){
         fajlI.close();
 }
 
+InstrumentState kreirajInstrument(string instrument){
+	if(instrument.compare("klavir")){
+		return InstrumentState::klavir;
+	}
+	else if (instrument.compare("harmonika")) {
+		return InstrumentState::harmonika;
+	}
+	else if (instrument.compare("violina")) {
+		return InstrumentState::violina;
+	}
+	else{
+		return InstrumentState::gitara;
+	}
+}
