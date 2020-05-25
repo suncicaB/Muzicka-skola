@@ -54,6 +54,14 @@ int main(){
 		predmeti[i] = p;
 	}
 
+	cout << "Izaberite opciju";
+	cout << "1 - Upisi ucenika";
+	cout << "2 - Pronadji ucenika";
+	cout << "3 - Zaposli profesora";
+	cout << "4 - Pronadji profesora";
+	cout << "5 - Zakazi koncert";
+	cout << "6 - Pregledaj spisak koncerata";
+
 
     return 0;
 }
