@@ -35,8 +35,6 @@ void prikaziSpisakUcenika(vector<Ucenik> &ucenici);
 void zaposliProfesora(vector<Profesor> &profesori);
 void pronadjiProfesora(vector<Profesor> &profesori);
 void prikaziSpisakProfesora(vector<Profesor> &profesori);
-void zakaziKoncert();
-void pregledajSpisakKoncerata();
 
 int main(){
 	
@@ -88,14 +86,8 @@ int main(){
 		} else if(opcija == 5) {
 			pronadjiProfesora(profesori);
 			break;
-		} else if(opcija == 6) {
+		} else  {
 			prikaziSpisakProfesora(profesori);
-			break;
-		} else if(opcija == 7) {
-			zakaziKoncert();
-			break;
-		} else {
-			pregledajSpisakKoncerata();
 			break;
 		}
 	}
@@ -286,5 +278,4 @@ void prikaziSpisakProfesora(vector<Profesor> &profesori){
 	}
 }
 void zakaziKoncert(){}
-void pregledajSpisakKoncerata(){}
 
