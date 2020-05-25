@@ -23,35 +23,33 @@ public:
         return razred;
     }
     void setRazred(int godina){
-        if(godina<7){
-            cout<<"Nema dovoljno godina za upis u muzicku skolu"<<endl;
-        }else if((godina>=7) && (godina<=13)){
-            if(godina==7){
-                razred=pripremni;
-            }
-            else if(godina==8){
-                razred=prvi;
+        if(godina<=7){
+            razred = RazredState::pripremni;
+        }else if((godina>7)){
+            if(godina==8){
+                razred=RazredState::prvi;
             }
             else if(godina==9){
-                razred=drugi;
+                razred=RazredState::drugi;
             }
             else if(godina==10){
-                razred=treci;
+                razred=RazredState::treci;
             }
             else if(godina==11){
-                razred=cetvrti;
+                razred=RazredState::cetvrti;
             }
             else if(godina==12){
-                razred=peti;
+                razred=RazredState::peti;
             }
-            else if(godina==13){
-                razred=sesti;
+            else{
+                razred=RazredState::sesti;
             }
         }
     }
     void predstaviSe(){
-        cout<<"Dobar dan ja sam: "<<ime<<" "<<prezime<<"imam: "<<godine<<endl;
-        cout<<"I idem u: "<<razred<<endl;
+	string razr = enum_to_string(razred);
+        cout<<"Dobar dan ja sam: "<<ime<<" "<<prezime<<" imam: "<<godine<<endl;
+        cout<<"I idem u "<<razr<< " razred." << endl;
     }
 
     void setInstrument(Instrument *i) {

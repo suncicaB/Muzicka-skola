@@ -1,6 +1,11 @@
 #ifndef INSTRUMENT_HPP_INCLUDED
 #define INSTRUMENT_HPP_INCLUDED
-//treba povezati sa drugim klasama
+#include<iostream>
+
+using std::cout;
+using std::endl;
+
+
 enum InstrumentState{klavir, gitara, violina, harmonika};
 
 class Instrument{
@@ -21,6 +26,23 @@ public:
     }
     InstrumentState getIst()const{
         return getInstr();
+    }
+
+    void naziv() {
+	switch(instr) {
+          case klavir:
+             cout << "klavir" << endl;
+	     break;
+          case gitara:
+             cout << "gitara" << endl;
+	     break;
+          case violina:
+             cout << "violina" << endl;
+	     break;
+          default:
+             cout << "harmonika" << endl;
+       }
+
     }
 };
 

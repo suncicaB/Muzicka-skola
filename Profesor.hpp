@@ -24,8 +24,9 @@ public:
         struka=strukaa;
     }
     void predstaviSe(){
-        cout<<"Dobar dan ja sam: "<<ime<<" "<<prezime<<"imam: "<<godine<<endl;
-        cout<<"I predajem: "<<struka<<endl;
+	    string struk=enum_to_string(struka);
+        cout<<"Dobar dan ja sam: "<<ime<<" "<<prezime<<" imam: "<<godine<<endl;
+        cout<<"Profesor sam "<<struk<<endl;
     }
     void zaposliProf(Profesor profesor, int i){
         ofstream fajl;
@@ -59,7 +60,9 @@ public:
         cout<<struka<<endl;
     }
    void setStruka(string struka){
+	   cout << struka << " \n";
             if(struka.compare("klavir") == 0){
+		cout << "da\n";
                 struka=ProfesorState::klavira;
             }
             else if(struka.compare("gitara") == 0){
@@ -76,6 +79,19 @@ public:
 
 
         }
+string enum_to_string(ProfesorState type) {
+       switch(type) {
+          case klavira:
+             return "klavira";
+          case gitare:
+             return "gitare";
+          case violine:
+             return "violine";
+          default:
+             return "harmonike";
+       }
+}
+
 };
 
 #endif // PROFESOR_HPP_INCLUDED

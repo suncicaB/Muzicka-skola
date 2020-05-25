@@ -122,17 +122,17 @@ void unesiUcenike(int &broj, int &brojI, string filen, vector<Ucenik> &ucenici, 
 		while(getline(fajlI, linija)) {
 			int pos = 0;
 			string ime = linija.substr(pos, linija.find(delimiter)); 
-			pos = pos + delimiter.length();
+			linija = linija.substr(ime.size() + delimiter.length());
 			string prezime = linija.substr(pos, linija.find(delimiter));
-			pos = pos + delimiter.length();
+			linija = linija.substr(prezime.size() + delimiter.length());
 			string godine = linija.substr(pos, linija.find(delimiter));
+			linija = linija.substr(godine.size() + delimiter.length());
 			int god = std::atoi(godine.c_str());
-			pos = pos + delimiter.length();
-			string instrument = linija.substr(pos, linija.find(delimiter));
+			string instrument = linija.substr(pos);
 			InstrumentState instr = kreirajInstrument(instrument);
 			Ucenik u(ime, prezime, god);
+			u.setRazred(god);
 			Instrument uInstrument (instr);
-
 			instrumenti.push_back(uInstrument);
 			u.setInstrument(&uInstrument);
 			
@@ -157,12 +157,12 @@ void unesiProfesore(int &brojP, string filen, vector<Profesor> &profesori){
                 while(getline(fajlI, linija)) {
                         int pos = 0;
                         string ime = linija.substr(pos, linija.find(delimiter));
-                        pos = pos + delimiter.length();
-                        string prezime = linija.substr(pos, linija.find(delimiter));
-                        pos = pos + delimiter.length();
+                        linija = linija.substr(ime.size() + delimiter.length());
+			string prezime = linija.substr(pos, linija.find(delimiter));
+                        linija = linija.substr(prezime.size() + delimiter.length());
                         string godine = linija.substr(pos, linija.find(delimiter));
-                        int god = std::atoi(godine.c_str());
-                        pos = pos + delimiter.length();
+                        linija = linija.substr(godine.size() + delimiter.length());
+			int god = std::atoi(godine.c_str());
 			string struka = linija.substr(pos, linija.find(delimiter));
                         Profesor p(ime, prezime, god);
 			p.setStruka(struka);
