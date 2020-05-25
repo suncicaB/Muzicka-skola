@@ -1,10 +1,12 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
 using std::string;
 using std::ofstream;
 using std::ifstream;
+using std::vector;
 std::string delimiter = ",";
 
 #include "Osoba.hpp"
@@ -20,12 +22,11 @@ std::string delimiter = ",";
 #include "Nagrada.hpp"
 #include "Termin.hpp"
 
-int Osoba::godine=7;
 
-void unesiUcenike(int &broj, int &brojI, string filen, Ucenik* ucenici, Instrument*  instrumenti);
-void unesiProfesore(int &brojP, string filen, Profesor* profesori);
+void unesiUcenike(int &broj, int &brojI, string filen, vector<Ucenik> &ucenici, vector<Instrument>  &instrumenti);
+void unesiProfesore(int &brojP, string filen, vector<Profesor> &profesori);
 InstrumentState kreirajInstrument(string instrument);
-void sacuvajPredmete(int &pred, string fn, Predmet *predmeti);
+void sacuvajPredmete(int &pred, string fn, vector<Predmet> &predmeti);
 
 int main(){
 	
@@ -36,22 +37,22 @@ int main(){
         int brI = 0;
 	int brP = 0;
 
-	Instrument* instrumenti;
+	vector<Instrument> instrumenti;
 
 	string u_file="ucenici.txt";
-	Ucenik* ucenici;
+	vector<Ucenik> ucenici;
 	unesiUcenike(broj, brojI, u_file, ucenici, instrumenti);
 
 	string p_file="profesori.txt";
-	Profesor* profesori;
+	vector<Profesor> profesori;
 	unesiProfesore(brojP, p_file, profesori);
 
-	Predmet* predmeti = new Predmet[brojP] ;
+	vector<Predmet> predmeti;
 	//kreiraj predmete
 	for(int i = 0; i < brojP; i++) {
 		Profesor prof = profesori[i];
 		Predmet p(prof.getIme());
-		predmeti[i] = p;
+		predmeti.push_back(p);
 	}
 
 	cout << "Izaberite opciju";
@@ -66,7 +67,7 @@ int main(){
     return 0;
 }
 
-void unesiUcenike(int &broj, int &brojI, string filen, Ucenik* ucenici, Instrument*  instrumenti){
+void unesiUcenike(int &broj, int &brojI, string filen, vector<Ucenik> &ucenici, vector<Instrument>  &instrumenti){
 	ofstream fajlO;
 	
 	int brU = 0;
@@ -77,7 +78,6 @@ void unesiUcenike(int &broj, int &brojI, string filen, Ucenik* ucenici, Instrume
 	if(fajlI.is_open()){
 		getline(fajlI, linija);
 		broj = std::atoi(linija.c_str());
-		ucenici = new Ucenik[broj];
 		while(getline(fajlI, linija)) {
 			int pos = 0;
 			string ime = linija.substr(pos, linija.find(delimiter)); 
@@ -92,10 +92,10 @@ void unesiUcenike(int &broj, int &brojI, string filen, Ucenik* ucenici, Instrume
 			Ucenik u(ime, prezime, god);
 			Instrument uInstrument (instr);
 
-			instrumenti[brI] = uInstrument;
+			instrumenti.push_back(uInstrument);
 			u.setInstrument(&uInstrument);
 			
-			ucenici[brU] = u;
+			ucenici.push_back(u);
 			brU++;
 		}
 	}		
@@ -103,7 +103,7 @@ void unesiUcenike(int &broj, int &brojI, string filen, Ucenik* ucenici, Instrume
 	fajlI.close();
 }
 
-void unesiProfesore(int &brojP, string filen, Profesor* profesori){
+void unesiProfesore(int &brojP, string filen, vector<Profesor> &profesori){
         ofstream fajlO;
 
         int brP = 0;
@@ -113,7 +113,6 @@ void unesiProfesore(int &brojP, string filen, Profesor* profesori){
         if(fajlI.is_open()){
                 getline(fajlI, linija);
                 brojP = std::atoi(linija.c_str());
-                profesori = new Profesor[brojP];
                 while(getline(fajlI, linija)) {
                         int pos = 0;
                         string ime = linija.substr(pos, linija.find(delimiter));
@@ -126,7 +125,7 @@ void unesiProfesore(int &brojP, string filen, Profesor* profesori){
 			string struka = linija.substr(pos, linija.find(delimiter));
                         Profesor p(ime, prezime, god);
 			p.setStruka(struka);
-                        profesori[brP] = p;
+                        profesori.push_back(p);
 			brP++;
                 }
         }
@@ -150,11 +149,11 @@ InstrumentState kreirajInstrument(string instrument){
 }
 
         
-void sacuvajPredmete(int &pred, string fn, Predmet *predmeti) {
+void sacuvajPredmete(int &pred, string fn, vector<Predmet> &predmeti) {
 	ofstream fajl;
             fajl.open(fn);
 	    for (int i = 0; i < pred; i ++) {
-	   	 string upis=predmeti[i].getProfesor();
+	   	 string upis=predmeti.front().getProfesor();
            	 fajl<<upis<<endl;
 
 	    }

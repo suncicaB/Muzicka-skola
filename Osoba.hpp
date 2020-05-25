@@ -11,7 +11,7 @@ class Osoba{
 protected:
     string ime;
     string prezime;
-    static int godine;
+    int godine;
 public:
     Osoba(string iime, string pprezime, int ggodine){
         ime=iime;
