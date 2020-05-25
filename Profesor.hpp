@@ -60,9 +60,7 @@ public:
         cout<<struka<<endl;
     }
    void setStruka(string struka){
-	   cout << struka << " \n";
             if(struka.compare("klavir") == 0){
-		cout << "da\n";
                 struka=ProfesorState::klavira;
             }
             else if(struka.compare("gitara") == 0){
