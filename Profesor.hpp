@@ -9,7 +9,7 @@ enum ProfesorState{klavira, gitare, violine, harmonike, solfedja, hora, teorije_
 
 class Profesor:public Osoba{
 private:
-    string spisak_profesora="Profesori.txt";
+    string spisak_profesora="profesori.txt";
     ProfesorState struka;
 public:
     Profesor():Osoba(" ", " ", 0), struka(klavira){}
@@ -33,8 +33,8 @@ public:
         if(i>71){
             cout<<"Popunjena radna mesta"<<endl;
         }else{
-            string zaposli=profesor.getIme()+" "+profesor.getPrezime()+" "+std::to_string(profesor.getGodine());
-            fajl.open(spisak_profesora);
+            string zaposli=profesor.getIme()+","+profesor.getPrezime()+","+std::to_string(profesor.getGodine());
+            fajl.open(spisak_profesora,std::ios_base::app);
             fajl<<zaposli<<endl;
             fajl.close();
         }

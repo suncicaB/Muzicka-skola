@@ -52,7 +52,7 @@ public:
         cout<<"I idem u "<<razr<< " razred." << endl;
     }
 
-    void setInstrument(Instrument *i) {
+    void setInstrument(Instrument* i) {
     	instrument = i;
     }
 
@@ -80,8 +80,8 @@ public:
         if(i>2001){
             cout<<"Popunjena mesta";
         }else{
-            fajl.open(naziv);
-            string upis=ucenik.getIme()+" "+ucenik.getPrezime()+" "+std::to_string(ucenik.getGodine());
+            fajl.open(naziv, std::ios_base::app);
+            string upis=ucenik.getIme()+","+ucenik.getPrezime()+","+std::to_string(ucenik.getGodine());
             fajl<<upis<<endl;
             fajl.close();
         }

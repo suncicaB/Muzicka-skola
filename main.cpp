@@ -29,10 +29,10 @@ void unesiProfesore(int &brojP, string filen, vector<Profesor> &profesori);
 InstrumentState kreirajInstrument(string instrument);
 void sacuvajPredmete(int &pred, string fn, vector<Predmet> &predmeti);
 void ispisOpcija();
-void upisiUcenika();
+void upisiUcenika(vector<Ucenik> &ucenici);
 void pronadjiUcenika();
 void prikaziSpisakUcenika(vector<Ucenik> &ucenici);
-void zaposliProfesora();
+void zaposliProfesora(vector<Profesor> &profesori);
 void pronadjiProfesora();
 void prikaziSpisakProfesora(vector<Profesor> &profesori);
 void zakaziKoncert();
@@ -72,23 +72,32 @@ int main(){
 
 	while(opcija != -1) {
 		if(opcija == 0) {
-			ispisOpcija();			
+			ispisOpcija();
+			break;			
 		} else if(opcija == 1) {
-			upisiUcenika();
+			upisiUcenika(ucenici);
+			break;
 		} else if(opcija == 2) {
 			pronadjiUcenika();
+			break;
 		} else if(opcija == 3) {
 			prikaziSpisakUcenika(ucenici);
+			break;
 		} else if (opcija == 4) {
-			zaposliProfesora();
+			zaposliProfesora(profesori);
+			break;
 		} else if(opcija == 5) {
 			pronadjiProfesora();
+			break;
 		} else if(opcija == 6) {
 			prikaziSpisakProfesora(profesori);
+			break;
 		} else if(opcija == 7) {
 			zakaziKoncert();
+			break;
 		} else {
 			pregledajSpisakKoncerata();
+			break;
 		}
 	}
     
@@ -202,7 +211,32 @@ void sacuvajPredmete(int &pred, string fn, vector<Predmet> &predmeti) {
 
 }
 
-void upisiUcenika(){}
+void upisiUcenika(vector<Ucenik> &ucenici){
+	string ime;
+	string prezime;
+	int godine;
+	string instrument;
+	
+	cin.ignore(1000, '\n');
+	cout << "Unesite ime ucenika: " << endl;
+	getline(cin, ime);
+	cout << "Unesite prezime ucenika: " << endl;
+	getline(cin, prezime);
+        cout << "Unesite godine ucenika: " << endl;
+	cin >> godine;
+	cin.ignore(1000, '\n');
+	cout << "Unesite naziv instrumenta:" << endl;
+	getline(cin,instrument);
+        Ucenik u(ime, prezime, godine);
+	InstrumentState instr = kreirajInstrument(instrument);
+        u.setRazred(godine);
+        Instrument uInstrument (instr);
+        u.setInstrument(&uInstrument);
+
+	u.upisiUcenika(u, 1);
+	ucenici.push_back(u);
+	
+}
 void pronadjiUcenika(){}
 void prikaziSpisakUcenika(vector<Ucenik> &ucenici){
 	for(int i = 0; i < ucenici.size(); i++) {
@@ -210,7 +244,29 @@ void prikaziSpisakUcenika(vector<Ucenik> &ucenici){
 		u.predstaviSe();
 	}
 }
-void zaposliProfesora(){}
+void zaposliProfesora(vector<Profesor> &profesori){
+	string ime;
+        string prezime;
+        int godine;
+        string instrument;
+
+        cin.ignore(1000, '\n');
+        cout << "Unesite ime profesora: " << endl;
+        getline(cin, ime);
+        cout << "Unesite prezime profesora: " << endl;
+        getline(cin, prezime);
+        cout << "Unesite godine profesora: " << endl;
+        cin >> godine;
+        cin.ignore(1000, '\n');
+        cout << "Unesite naziv instrumenta:" << endl;
+        getline(cin,instrument);
+        Profesor p(ime, prezime, godine);
+        p.setStruka(instrument);
+
+        p.zaposliProf(p, 1);
+        profesori.push_back(p);
+
+}
 void pronadjiProfesora(){}
 void prikaziSpisakProfesora(vector<Profesor> &profesori){
 	for(int i = 0; i < profesori.size(); i++) {
