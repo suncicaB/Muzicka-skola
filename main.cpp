@@ -7,6 +7,7 @@ using std::string;
 using std::ofstream;
 using std::ifstream;
 using std::vector;
+using std::cin;
 std::string delimiter = ",";
 
 #include "Osoba.hpp"
@@ -27,6 +28,15 @@ void unesiUcenike(int &broj, int &brojI, string filen, vector<Ucenik> &ucenici, 
 void unesiProfesore(int &brojP, string filen, vector<Profesor> &profesori);
 InstrumentState kreirajInstrument(string instrument);
 void sacuvajPredmete(int &pred, string fn, vector<Predmet> &predmeti);
+void ispisOpcija();
+void upisiUcenika();
+void pronadjiUcenika();
+void prikaziSpisakUcenika();
+void zaposliProfesora();
+void pronadjiProfesora();
+void prikaziSpisakProfesora();
+void zakaziKoncert();
+void pregledajSpisakKoncerata();
 
 int main(){
 	
@@ -36,6 +46,8 @@ int main(){
         int brU = 0;
         int brI = 0;
 	int brP = 0;
+
+	int opcija = 0;
 
 	vector<Instrument> instrumenti;
 
@@ -55,16 +67,45 @@ int main(){
 		predmeti.push_back(p);
 	}
 
-	cout << "Izaberite opciju";
-	cout << "1 - Upisi ucenika";
-	cout << "2 - Pronadji ucenika";
-	cout << "3 - Zaposli profesora";
-	cout << "4 - Pronadji profesora";
-	cout << "5 - Zakazi koncert";
-	cout << "6 - Pregledaj spisak koncerata ";
+	ispisOpcija();
+	cin >> opcija;
 
+	while(opcija != -1) {
+		if(opcija == 0) {
+			ispisOpcija();			
+		} else if(opcija == 1) {
+			upisiUcenika();
+		} else if(opcija == 2) {
+			pronadjiUcenika();
+		} else if(opcija == 3) {
+			prikaziSpisakUcenika();
+		} else if (opcija == 4) {
+			zaposliProfesora();
+		} else if(opcija == 5) {
+			pronadjiProfesora();
+		} else if(opcija == 6) {
+			prikaziSpisakProfesora();
+		} else if(opcija == 7) {
+			zakaziKoncert();
+		} else {
+			pregledajSpisakKoncerata();
+		}
+	}
 
     return 0;
+}
+
+void ispisOpcija() {
+	cout << "Izaberite opciju:\n";
+        cout << "1 - Upisi ucenika\n";
+        cout << "2 - Pronadji ucenika\n";
+        cout << "3 - Prikazi spisak ucenika\n";
+        cout << "4 - Zaposli profesora\n";
+        cout << "5 - Pronadji profesora\n";
+        cout << "6 - Prikazi spisak profesora\n";
+        cout << "7 - Zakazi koncert\n";
+        cout << "8 - Pregledaj spisak koncerata \n";
+        cout << "Unesite '-1' da zavrsite program \n";
 }
 
 void unesiUcenike(int &broj, int &brojI, string filen, vector<Ucenik> &ucenici, vector<Instrument>  &instrumenti){
@@ -160,3 +201,13 @@ void sacuvajPredmete(int &pred, string fn, vector<Predmet> &predmeti) {
             fajl.close();
 
 }
+
+void upisiUcenika(){}
+void pronadjiUcenika(){}
+void prikaziSpisakUcenika(){}
+void zaposliProfesora(){}
+void pronadjiProfesora(){}
+void prikaziSpisakProfesora(){}
+void zakaziKoncert(){}
+void pregledajSpisakKoncerata(){}
+
