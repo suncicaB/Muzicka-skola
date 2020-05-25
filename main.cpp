@@ -31,10 +31,10 @@ void sacuvajPredmete(int &pred, string fn, vector<Predmet> &predmeti);
 void ispisOpcija();
 void upisiUcenika();
 void pronadjiUcenika();
-void prikaziSpisakUcenika();
+void prikaziSpisakUcenika(vector<Ucenik> &ucenici);
 void zaposliProfesora();
 void pronadjiProfesora();
-void prikaziSpisakProfesora();
+void prikaziSpisakProfesora(vector<Profesor> &profesori);
 void zakaziKoncert();
 void pregledajSpisakKoncerata();
 
@@ -78,13 +78,13 @@ int main(){
 		} else if(opcija == 2) {
 			pronadjiUcenika();
 		} else if(opcija == 3) {
-			prikaziSpisakUcenika();
+			prikaziSpisakUcenika(ucenici);
 		} else if (opcija == 4) {
 			zaposliProfesora();
 		} else if(opcija == 5) {
 			pronadjiProfesora();
 		} else if(opcija == 6) {
-			prikaziSpisakProfesora();
+			prikaziSpisakProfesora(profesori);
 		} else if(opcija == 7) {
 			zakaziKoncert();
 		} else {
@@ -204,10 +204,20 @@ void sacuvajPredmete(int &pred, string fn, vector<Predmet> &predmeti) {
 
 void upisiUcenika(){}
 void pronadjiUcenika(){}
-void prikaziSpisakUcenika(){}
+void prikaziSpisakUcenika(vector<Ucenik> &ucenici){
+	for(int i = 0; i < ucenici.size(); i++) {
+		Ucenik u = ucenici.front();
+		u.predstaviSe();
+	}
+}
 void zaposliProfesora(){}
 void pronadjiProfesora(){}
-void prikaziSpisakProfesora(){}
+void prikaziSpisakProfesora(vector<Profesor> &profesori){
+	for(int i = 0; i < profesori.size(); i++) {
+		Profesor p = profesori.front();
+		p.predstaviSe();
+	}
+}
 void zakaziKoncert(){}
 void pregledajSpisakKoncerata(){}
 
