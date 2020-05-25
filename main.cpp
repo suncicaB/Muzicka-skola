@@ -91,7 +91,6 @@ int main(){
 			pregledajSpisakKoncerata();
 		}
 	}
-
     return 0;
 }
 
